@@ -85,7 +85,7 @@ int change_user_group (const char *username, const char *groupname) {
       return -1;
     }
     gid_t gid = pw->pw_gid;
-    if (setgroups (1, &gid) < 0) {
+    if (setgroups (0, NULL) < 0) {
       kprintf ("change_user_group: failed to clear supplementary groups list: %m\n");
       return -1;
     }
